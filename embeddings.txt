@@ -1,0 +1,136 @@
+
+**Embeddings are numbers that represent meaning.**
+They convert words or sentences into **vectors** (lists of numbers) so that a computer can understand relationships between them.
+
+Example:
+
+| Word    | Embedding (very simplified) |
+| ------- | --------------------------- |
+| “king”  | [0.52, 1.73, −0.44, ...]    |
+| “queen” | [0.49, 1.71, −0.40, ...]    |
+| “apple” | [−1.22, 0.33, 0.98, ...]    |
+
+Each embedding is usually **hundreds or thousands of numbers long**.
+
+---
+
+# 
+Computers cannot understand text directly.
+But they can understand **numbers**.
+
+Embeddings transform text → numbers in such a way that **words with similar meaning have similar vectors**.
+
+Example:
+
+* “happy” and “joyful” → similar vectors
+* “car” and “automobile” → similar vectors
+* “cat” and “banana” → very different vectors
+
+So embeddings allow computers to understand **meaning, similarity, and relationships**.
+
+---
+
+
+Embeddings place words in a **high-dimensional space** (often 512, 1024, or 4096 dimensions).
+
+In this space:
+
+* similar meanings are **close together**
+* unrelated meanings are **far apart**
+* relationships form directions (vectors)
+
+Think of it like a map, but instead of 2D (x,y), it’s **hundreds of dimensions**.
+
+Example:
+
+```
+happy  →    ●
+joyful →   ●  (close)
+sad    →                  ● (far)
+```
+
+The model learns these positions during training.
+
+---
+
+
+During training, the model sees billions of sentences.
+
+For each word, it keeps adjusting its embedding vector so that:
+
+* words that appear in similar contexts get closer
+* words that behave similarly have similar vectors
+
+Example:
+
+Sentences:
+
+* “I ate an *apple*”
+* “The *apple* fell from the tree”
+* “I like fresh *mangoes*”
+
+Because *apple* and *mango* appear in similar contexts, their embeddings move closer.
+
+This update happens **millions of times** until embeddings represent real meaning.
+
+---
+
+Embeddings are created using **context**.
+
+Words that appear in similar places → similar meaning.
+
+This idea is called:
+
+> **“You shall know a word by the company it keeps.”**
+
+Example:
+
+* “bank” near “money”, “loan”, “finance” → financial meaning
+* “bank” near “river”, “shore”, “water” → riverbank meaning
+
+LLMs can produce **contextual embeddings**, meaning the embedding of “bank” changes depending on the sentence.
+
+---
+
+Embeddings capture meaningful relationships like:
+
+### **king − man + woman = queen**
+
+Why?
+
+Because embeddings encode:
+
+* gender
+* royalty
+* singular/plural
+* past/present
+* positive/negative
+
+Example:
+
+```
+vector("king") − vector("man") + vector("woman") ≈ vector("queen")
+```
+
+This works because embeddings position words in relational ways.
+
+
+When you type something, the LLM:
+
+1. Splits your text into **tokens**
+2. Converts each token into a **vector (embedding)**
+3. Passes these vectors through transformer layers
+4. Predicts the next token based on these embeddings
+
+Without embeddings, LLMs cannot “understand” meaning.
+
+---
+
+
+* Embeddings = numbers that represent meaning
+* Similar meanings → vectors close to each other
+* They are learned by looking at billions of sentences
+* Used for search, chatbots, clustering, recommendations
+* Let computers understand human language in a numerical form
+
+---
